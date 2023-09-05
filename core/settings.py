@@ -26,7 +26,10 @@ SECRET_KEY = 'django-insecure-ot2@7r)o9@xx2qqe6nyl$9jooshh2z!nbqf)!7k04d0829a=^q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+if os.environ.get("GITPOD_WORKSPACE_URL", "") != "":
+
+    CSRF_TRUSTED_ORIGINS = [os.environ.get("GITPOD_WORKSPACE_URL", "").replace("https://", "https://8000-")]
 
 
 # Application definition
